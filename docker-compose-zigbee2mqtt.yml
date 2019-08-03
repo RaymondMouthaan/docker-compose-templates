@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
@@ -11,3 +11,7 @@ services:
     network_mode: host
     environment:
       - TZ=Europe/Amsterdam
+    deploy:
+      placement:
+        constraints: [node.hostname == rpi-3]
+      replicas: 1
